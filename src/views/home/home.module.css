@@ -1,0 +1,22 @@
+#AbsoulteContainer{
+    position: relative;
+}
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5000;
+}
+#body{
+    border-top: 58px solid var(--body-background-primary);
+    background-color: var(--body-background-primary);
+    transition: var(--transition);
+}
+#container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 100vw;
+}
+

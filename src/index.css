@@ -1,0 +1,135 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap'); */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: Rubik, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif; */
+  font-family: 'Inter', sans-serif;    
+  -webkit-font-smoothing: antialiased;
+  -webkit-box-direction: normal;
+  -webkit-text-size-adjust: 100%;
+}
+
+:root {
+  /*  GENERAL */
+  --opacity: 1;
+
+  --header-background: rgba(1, 6, 25, var(--opacity));
+
+  --body-background-primary: rgba(2, 6, 23, var(--opacity));
+  --body-background-secondary: rgba(2, 6, 23, var(--opacity));
+
+  --border-color: rgba( 243, 244, 246, .2);
+  
+  --opacity-text-color: .75;
+  --text-color: 210, 220, 220;
+
+  /* TITLE HERO */
+  --hero-title-gradient-start: #fff;
+  --hero-title-gradient-end: rgba(255, 255, 255, 0.48);
+  --span-hero-title: rgba(255, 255, 255, 0.74);
+
+
+
+  /* SLIDER INICIO */
+  --back-img-container : rgba(2, 6, 23, 0.75);
+
+
+
+  /* TRANSITION */
+  --transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+
+  /*  */
+}
+
+@media (prefers-color-scheme: light){
+  :root{
+      /*  GENERAL  */
+      --header-background: rgba(1, 6, 25);
+      --body-background-primary: rgb(238, 238, 238);
+      --body-background-secondary: rgba(255, 255, 255, var(--opacity));
+      --text-color: 38, 38, 38;
+
+      --border-color: rgba( 200, 200, 200, .85);
+
+
+
+      /* TITLE HERO */
+      --hero-title-gradient-start: #0f172a;
+      --hero-title-gradient-end: rgba(15, 23, 42, 0.6);
+      --span-hero-title:  rgba(15, 23, 42, 0.6);
+
+
+          
+      /* SLIDER INICIO */
+      --back-img-container : rgba(238, 238, 238, 0.75);
+  }
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+      /*  GENERAL  */
+      --header-background: rgba(15, 23, 42, .85);
+      --body-background-primary: rgba(2, 6, 23, var(--opacity));
+      --body-background-secondary: rgba(2, 6, 23, var(--opacity));
+      --opacity-text-color: 0.8;
+      --text-color: 210, 220, 220;
+
+      --border-color: rgba( 243, 244, 246,.2);
+
+
+      /* TITLE HERO */
+      --hero-title-gradient-start: #fff;
+      --hero-title-gradient-end: rgba(255, 255, 255, 0.48);
+      --span-hero-title: rgba(255, 255, 255, 0.72);
+
+
+      /* SLIDER INICIO */
+      --back-img-container : rgba(2, 6, 23, 0.75);
+  }
+}
+
+:root[data-theme='light'] {
+  /*  GENERAL  */
+  --header-background: rgba(1, 6, 25, .85);
+  --body-background-primary: rgb(238, 238, 238);
+  --body-background-secondary: rgba(255, 255, 255, var(--opacity));
+  --text-color: 38, 38, 38;
+
+  --border-color: rgba( 200, 200, 200, .85);
+
+
+  /* TITLE HERO */
+  --hero-title-gradient-start: #0f172a;
+  --hero-title-gradient-end: rgba(15, 23, 42, 0.6);
+  --span-hero-title:  rgba(15, 23, 42, 0.6);
+
+
+
+  /* SLIDER INICIO */
+  --back-img-container : rgba(238, 238, 238, 0.75);
+}
+
+
+:root[data-theme='dark'] {
+  /*  GENERAL  */
+  --header-background: rgba(15, 23, 42, .85);
+  --body-background-primary: rgba(2, 6, 23, var(--opacity));
+  --body-background-secondary: rgba(2, 6, 23, var(--opacity));
+  --opacity-text-color: 0.8;
+  --text-color: 210, 220, 220;
+
+  --border-color: rgba( 243, 244, 246, .2);
+
+
+  /* TITLE HERO */
+  --hero-title-gradient-start: #fff;
+  --hero-title-gradient-end: rgba(255, 255, 255, 0.48);
+  --span-hero-title: rgba(255, 255, 255, 0.72);
+
+
+
+  /* SLIDER INICIO */
+  --back-img-container : rgba(2, 6, 23, 0.75);
+}

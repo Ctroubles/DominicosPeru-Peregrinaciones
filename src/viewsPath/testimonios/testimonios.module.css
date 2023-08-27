@@ -1,0 +1,97 @@
+#Testimonios{
+    transition: var(--transition);
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 15px;
+    color: rgba(var(--text-color), var(--opacity-text-color));
+}
+#tittle{
+    padding: 60px 50px 0;
+}
+#tittle h2{
+    font-weight: 700;
+    color: rgb(255, 99, 71);
+    color: #333333;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 0px 7px 13px #0000009f;
+}
+#tittle h2 span{
+    color: #004466;
+}
+#contenedor{
+    padding: 60px 15px 90px;
+}
+
+
+@media (prefers-color-scheme: dark){
+    #tittle h2{
+        color: rgb(255, 100, 100);
+        text-shadow: 0px 7px 13px rgba(200, 200, 200, 0.3);
+    }
+    #tittle h2 span{
+        color: rgb(255, 100, 100);
+    }
+}
+
+[data-theme='dark'] #tittle h2{
+    color: rgb(255, 100, 100);
+    text-shadow: 0px 7px 13px rgba(200, 200, 200, 0.3);
+}
+[data-theme='dark'] #tittle h2 span{
+    color: rgb(255, 100, 100);
+}
+[data-theme='light'] #tittle h2{
+    color: #333333;
+    text-shadow: 0px 7px 13px #0000009f;
+}
+[data-theme='light'] #tittle h2 span{
+    color: #004466;
+}
+
+@media screen and (max-width:750px) {
+    #Testimonios{
+        width: 100%;
+        max-width: 1000px;
+        padding: 0 10px;
+    }
+    #tittle{
+        padding: 50px 20px 0;
+    }
+    #tittle h2{
+        font-size: 28px;
+    }
+    #contenedor{
+        padding: 50px 15px 90px;
+    }
+    
+}
+@media screen and (max-width:550px) {
+    #tittle{
+        padding: 40px 10px 0;
+    }
+    #tittle h2{
+        font-size: 25px;
+    }
+    #contenedor{
+        padding: 40px 15px 90px;
+    }
+}
+
+@media screen and (max-width:420px) {
+    #tittle{
+        padding: 30px 4px 0;
+        word-break: keep-all;
+    }
+    #tittle h2{
+        font-size: 24px;
+    }
+    #contenedor{
+        padding: 40px 5px 90px;
+    }
+}
+@media screen and (max-width:350px) {
+    #tittle h2{
+        font-size: 22px;
+    }
+}
