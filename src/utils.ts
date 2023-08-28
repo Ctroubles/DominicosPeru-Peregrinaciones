@@ -1,3 +1,5 @@
+import { type ColorScheme } from './enums'
+
 const WHA_SETTINGS = {
   peruPhone: '51939736123',
   ecuadorPhone: '593960918252',
@@ -29,7 +31,7 @@ export const FB_LINK = {
   ecuador: FB_SETTINGS.ecuador
 }
 
-export const setThemeColor = (value): void => {
+export const setThemeColor = (value: ColorScheme): void => {
   if (value != null) {
     window.localStorage.setItem('theme', value)
     const root = document.documentElement

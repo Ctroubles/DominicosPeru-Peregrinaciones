@@ -40,7 +40,7 @@ const Contactanos: React.FC = () => {
         //   process.env.REACT_APP_USER_ID
         // )
         setLoadingSend(false)
-        setSuccesAlert(true)
+        handleCloseSuccesAlert()
         setForm({
           reply_to: '',
           subject: '',
@@ -48,7 +48,7 @@ const Contactanos: React.FC = () => {
         })
       } catch (error) {
         setLoadingSend(false)
-        setErrorAlert(true)
+        handleCloseErrorAlert()
       }
     }
   }
@@ -77,6 +77,13 @@ const Contactanos: React.FC = () => {
       textAreaNode.style.height = `${textAreaNode.scrollHeight}px`
     }
   }, [])
+
+  const handleCloseSuccesAlert = (): void => {
+    setSuccesAlert(false)
+  }
+  const handleCloseErrorAlert = (): void => {
+    setErrorAlert(false)
+  }
 
   return (
              <div id={style.Contactanos}>
@@ -168,14 +175,14 @@ const Contactanos: React.FC = () => {
                 {
                     succesAlert
                       ? (
-                        <Alert status={1} closeHandler={setSuccesAlert}/>
+                        <Alert status={true} closeHandler={handleCloseSuccesAlert}/>
                         )
                       : null
                 }
                 {
                     errorAlert
                       ? (
-                        <Alert status={0} closeHandler={setErrorAlert}/>
+                        <Alert status={false} closeHandler={handleCloseErrorAlert}/>
                         )
                       : null
                 }

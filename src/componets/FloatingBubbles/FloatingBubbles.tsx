@@ -12,13 +12,13 @@ const FlotingBubbles: React.FC = () => {
         <div id={style.bubbles}>
             <div id={style.iconsContainer}>
                 <div>
-                    <a href={country === 'PE' ? WA_LINK.peru : WA_LINK.ecuador } target="blank">
-                        <img src={facebookIcon} alt="" />
+                    <a href={country === 'PE' ? FB_LINK.peru : FB_LINK.ecuador } target="blank">
+                        <img src={facebookIcon} alt="Facebook" />
                     </a>
                 </div>
                 <div>
-                    <a target="blank" href={country === 'PE' ? FB_LINK.peru : FB_LINK.ecuador}>
-                        <img src={whatsappIcon} alt="" />
+                    <a href={country === 'PE' ? WA_LINK.peru : WA_LINK.ecuador } target="blank">
+                        <img src={whatsappIcon} alt="Whatsapp" />
                     </a>
                 </div>
             </div>

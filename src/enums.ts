@@ -11,6 +11,11 @@ export enum ContactFormFieldsKeys {
   message = 'message'
 }
 
+export enum ColorScheme {
+  Dark = 'dark',
+  Light = 'light'
+}
+
 // Imported from here because it doesn't work correctly from .d.ts
 export type ContactFormFields = {
   [key in ContactFormFieldsKeys]: string;

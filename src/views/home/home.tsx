@@ -8,7 +8,7 @@ import Inicio from '../../viewsPath/inicio/Inicio'
 import Testimonos from '../../viewsPath/testimonios/testimonios'
 import Peregrinacion from '../../viewsPath/peregrinacion/peregrinacion'
 
-const Home = () => {
+const Home: React.FC = () => {
   const { pathname } = useLocation()
 
   useEffect(() => {

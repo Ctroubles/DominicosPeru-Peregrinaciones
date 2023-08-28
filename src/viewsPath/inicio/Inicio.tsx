@@ -3,7 +3,7 @@ import CardDestinos from '../../componets/card/Card'
 import { useRef } from 'react'
 import Slider from './components/slider/Slider'
 
-const sliderData = [
+const sliderData: Array<{ title: string, url: string }> = [
   {
     title: 'Nazareth',
     url: 'https://res.cloudinary.com/dmwdwipoo/image/upload/v1688965743/logares-600x400/nazareth_jdbayr.png'
@@ -55,21 +55,22 @@ const sliderData = [
 
 ]
 
-const Inicio = () => {
-  const containerRef = useRef(null)
+const Inicio: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null)
 
-  const handleMouseEnter = (name) => {
-    if (containerRef.current) {
-      Array.from(containerRef.current.children).forEach(child => {
-        if (child.dataset.name !== name) {
+  const handleMouseEnter = (name: string): void => {
+    if (containerRef.current != null) {
+      Array.from(containerRef.current?.children).forEach((child: Element) => {
+        const childDiv = child
+        if (childDiv instanceof HTMLDivElement && childDiv.dataset.name !== name) {
           child.classList.add(style.toCover)
         }
       })
     }
   }
 
-  const handleMouseLeave = () => {
-    if (containerRef.current) {
+  const handleMouseLeave = (): void => {
+    if (containerRef.current != null) {
       Array.from(containerRef.current.children).forEach(child => {
         child.classList.remove(style.toCover)
       })
@@ -161,47 +162,47 @@ const Inicio = () => {
                                 <div>
                                     <div id={style.row}>
                                         <div ref={containerRef}>
-                                            <div className={style.col_row} onMouseEnter={(e) => handleMouseEnter('1')} onMouseLeave={handleMouseLeave} data-name={1}>
+                                            <div className={style.col_row} onMouseEnter={() => { handleMouseEnter('1') }} onMouseLeave={handleMouseLeave} data-name={1}>
                                                 <div>
                                                     <img src={'https://res.cloudinary.com/dmwdwipoo/image/upload/v1692678493/countries/egipto-min_l5ihvx.png'} alt="" title="Egipto"/>
                                                 </div>
                                             </div>
-                                            <div className={style.col_row} onMouseEnter={(e) => handleMouseEnter('2')} onMouseLeave={handleMouseLeave} data-name={2}>
+                                            <div className={style.col_row} onMouseEnter={() => { handleMouseEnter('2') } } onMouseLeave={handleMouseLeave} data-name={2}>
                                                 <div>
                                                     <img src={'https://res.cloudinary.com/dmwdwipoo/image/upload/v1692678493/countries/espa%C3%B1a-min_fpjalc.png'} alt="España" />
                                                 </div>
                                             </div>
-                                            <div className={style.col_row} onMouseEnter={(e) => handleMouseEnter('3')} onMouseLeave={handleMouseLeave} data-name={3}>
+                                            <div className={style.col_row} onMouseEnter={() => { handleMouseEnter('3') } } onMouseLeave={handleMouseLeave} data-name={3}>
                                                 <div>
                                                     <img src={'https://res.cloudinary.com/dmwdwipoo/image/upload/v1692678493/countries/italia-min_szm8nj.png'} alt="" />
                                                 </div>
                                             </div>
-                                            <div className={style.col_row} onMouseEnter={(e) => handleMouseEnter('4')} onMouseLeave={handleMouseLeave} data-name={4}>
+                                            <div className={style.col_row} onMouseEnter={() => { handleMouseEnter('4') } } onMouseLeave={handleMouseLeave} data-name={4}>
                                                 <div>
                                                     <img src={'https://res.cloudinary.com/dmwdwipoo/image/upload/v1692678493/countries/francia-min_d02gfu.png'} alt="" />
                                                 </div>
                                             </div>
-                                            <div className={style.col_row} onMouseEnter={(e) => handleMouseEnter('5')} onMouseLeave={handleMouseLeave} data-name={5}>
+                                            <div className={style.col_row} onMouseEnter={() => { handleMouseEnter('5') } } onMouseLeave={handleMouseLeave} data-name={5}>
                                                 <div>
                                                     <img src={'https://res.cloudinary.com/dmwdwipoo/image/upload/v1692678493/countries/jordania-min_eivtap.png'} alt="" />
                                                 </div>
                                             </div>
-                                            <div className={style.col_row} onMouseEnter={(e) => handleMouseEnter('6')} onMouseLeave={handleMouseLeave} data-name={6}>
+                                            <div className={style.col_row} onMouseEnter={() => { handleMouseEnter('6') } } onMouseLeave={handleMouseLeave} data-name={6}>
                                                 <div>
                                                     <img src={'https://res.cloudinary.com/dmwdwipoo/image/upload/v1692678493/countries/medjugore-min_c9hndg.png'} alt="Medjugore" />
                                                 </div>
                                             </div>
-                                            <div className={style.col_row} onMouseEnter={(e) => handleMouseEnter('7')} onMouseLeave={handleMouseLeave} data-name={7}>
+                                            <div className={style.col_row} onMouseEnter={() => { handleMouseEnter('7') } } onMouseLeave={handleMouseLeave} data-name={7}>
                                                 <div>
                                                     <img src={'https://res.cloudinary.com/dmwdwipoo/image/upload/v1692678494/countries/portugal-min_hmgywd.png'} alt="Portugal" />
                                                 </div>
                                             </div>
-                                            <div className={style.col_row} onMouseEnter={(e) => handleMouseEnter('8')} onMouseLeave={handleMouseLeave} data-name={8}>
+                                            <div className={style.col_row} onMouseEnter={() => { handleMouseEnter('8') }} onMouseLeave={handleMouseLeave} data-name={8}>
                                                 <div>
                                                     <img src={'https://res.cloudinary.com/dmwdwipoo/image/upload/v1692678494/countries/turqu%C3%ADa-min_tgbqiz.png'} alt="Turquía" />
                                                 </div>
                                             </div>
-                                            <div className={style.col_row} onMouseEnter={(e) => handleMouseEnter('9')} onMouseLeave={handleMouseLeave} data-name={9}>
+                                            <div className={style.col_row} onMouseEnter={() => { handleMouseEnter('9') }} onMouseLeave={handleMouseLeave} data-name={9}>
                                                 <div>
                                                     <img src={'https://res.cloudinary.com/dmwdwipoo/image/upload/v1692678493/countries/egipto-min_l5ihvx.png'} alt="Egipto" />
                                                 </div>

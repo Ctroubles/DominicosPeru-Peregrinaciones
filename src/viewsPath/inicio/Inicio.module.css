@@ -24,7 +24,7 @@
 }
 #presentation p{
     padding: 20px 5px 10px;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 30px;
 }
 #presentation ul {
@@ -32,7 +32,7 @@
 }
 #presentation ul li{
     margin: 8px 0;
-    font-size: 16px;
+    font-size: 18px;
 }
 #cardContainer{
     padding-top: 10px;

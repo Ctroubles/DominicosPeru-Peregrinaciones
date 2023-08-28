@@ -2,10 +2,10 @@ import { SET_COUNTRY } from '../actions/actions_types'
 import type { IState, IActionReducer } from '../../types'
 import { type Country } from '../../enums'
 
-const countrylocal = localStorage.getItem('country') ?? ''
+const countrylocal = localStorage.getItem('country') ?? null
 
 const initialState: IState = {
-  country: countrylocal as keyof typeof Country
+  country: countrylocal as Country
 }
 
 const rootReducer = (state = initialState, action: IActionReducer): IState => {

@@ -70,7 +70,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    /* min-height: 40px; */
 }
 #description {
     margin-bottom: 10px;
@@ -83,7 +82,7 @@
     transition: var(--transition);
     margin-top: auto;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5; 
+    -webkit-line-clamp: 6; 
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

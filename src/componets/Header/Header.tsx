@@ -1,26 +1,29 @@
 import style from './Header.module.css'
 import { useNavigate, useLocation } from 'react-router-dom'
-
-import FlotingBubbles from '../../componets/FloatingBubbles/FloatingBubbles'
-import logo from '../../assets/logos/white_church_logo.png'
-import { useDispatch, useSelector } from 'react-redux'
-import setCountry from '../../redux/actions/actions'
 import { useState, useEffect, useRef } from 'react'
 
+import FlotingBubbles from '../FloatingBubbles/FloatingBubbles'
+import { useDispatch, useSelector } from 'react-redux'
+import setCountry from '../../redux/actions/actions'
+
+import logo from '../../assets/logos/white_church_logo.png'
 import peruFlag from '../../assets/flags/Flag_of_Peru.png'
 import ecuadorFlag from '../../assets/flags/Flag_of_Ecuador.png'
 import arroIcon from '../../assets/icons/triangle_icon.png'
 import moonIcon from '../../assets/icons/moon.png'
 import sunIcon from '../../assets/icons/sun.png'
-import { deleteThemeColor, setThemeColor } from '../../utils'
 
-const Header = () => {
-  const { country } = useSelector(e => e)
+import { deleteThemeColor, setThemeColor } from '../../utils'
+import { type RootState } from '../../redux/reducer/reducer'
+import { ColorScheme, Country } from '../../enums'
+
+const Header: React.FC = () => {
+  const { country } = useSelector((e: RootState) => e)
   const navigate = useNavigate()
   const location = useLocation()
   const dispatch = useDispatch()
 
-  const [THEME, SET_THEME] = useState()
+  const [THEME, SET_THEME] = useState<ColorScheme>()
   const [windowSize, setWindowSize] = useState(window.innerWidth)
   const [open, setOPen] = useState(false)
   const [popCountry, setPopCountry] = useState(false)
@@ -36,18 +39,18 @@ const Header = () => {
   useEffect(() => {
     const root = document.documentElement
 
-    const observer = new MutationObserver((mutationsList, observer) => {
-      // Verifica si hubo cambios en el atributo 'data-theme'
+    const observer = new MutationObserver((mutationsList) => {
       const themeAttributeChanged = mutationsList.some(mutation => mutation.attributeName === 'data-theme')
       if (themeAttributeChanged) {
         const themeValue = root.getAttribute('data-theme')
-        SET_THEME(themeValue)
+        if (themeValue === ColorScheme.Dark || themeValue === ColorScheme.Light) {
+          SET_THEME(themeValue)
+        }
       }
     })
 
     observer.observe(root, { attributes: true })
 
-    // Limpia el observador cuando el componente se desmonta
     return () => {
       observer.disconnect()
     }
@@ -63,20 +66,24 @@ const Header = () => {
   //   }, []);
 
   useEffect(() => {
-    const handleResize = () => {
+    const handleResize = (): void => {
       setWindowSize(window.innerWidth)
     }
 
     window.addEventListener('resize', handleResize)
 
-    return () => window.removeEventListener('resize', handleResize)
+    return () => { window.removeEventListener('resize', handleResize) }
   }, [])
 
   useEffect(() => {
     if (windowSize <= 1190) {
-      const clickHandler = ({ target }) => {
-        if (target.id !== 'butCountry') {
-          if (openRef.current) setOPen(false)
+      const clickHandler: (event: MouseEvent) => void = (event) => {
+        const { target } = event
+
+        if (target instanceof HTMLElement) {
+          if (target.id !== 'butCountry') {
+            if (openRef.current) setOPen(false)
+          }
         }
       }
 
@@ -84,19 +91,20 @@ const Header = () => {
         window.addEventListener('click', clickHandler)
       }
 
-      return () => window.removeEventListener('click', clickHandler)
+      return () => { window.removeEventListener('click', clickHandler) }
     }
   }, [windowSize, open])
 
   useEffect(() => {
-    const colorSchemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    const colorSchemeMediaQuery = window.matchMedia(`(prefers-color-scheme: ${ColorScheme.Dark})`)
     colorSchemeMediaQuery.addEventListener('change', handleColorSchemeChange)
 
     const root = document.documentElement
     const temaSaved = root.getAttribute('data-theme')
+    let tema = colorSchemeMediaQuery.matches ? ColorScheme.Dark : ColorScheme.Light
 
-    let tema = colorSchemeMediaQuery.matches ? 'dark' : 'light'
-    if (temaSaved) tema = temaSaved
+    if (temaSaved === ColorScheme.Dark || temaSaved === ColorScheme.Light) tema = temaSaved
+
     SET_THEME(tema)
 
     return () => {
@@ -104,9 +112,10 @@ const Header = () => {
     }
   }, [])
 
-  function handleColorSchemeChange (event) {
-    //   const newTheme = event.matches ? 'dark' : 'light';
+  function handleColorSchemeChange (event: MediaQueryListEvent): void {
+    const newTheme = event.matches ? ColorScheme.Dark : ColorScheme.Light
     deleteThemeColor()
+    SET_THEME(newTheme)
   }
 
   return (
@@ -154,25 +163,25 @@ const Header = () => {
                                 </div>
                             </li>
                             <li>
-                                <div className={`${style.nav_li} ${path === '/testimonios' ? style.active : undefined}`} onClick={() => navigate('/testimonios')}>
+                                <div className={`${style.nav_li} ${path === '/testimonios' ? style.active : undefined}`} onClick={() => { navigate('/testimonios') }}>
                                     <label >
                                         Testimonios
                                     </label>
                                 </div>
                             </li>
                             <li>
-                                <div className={`${style.nav_li} ${path === '/contactanos' ? style.active : undefined}`} onClick={() => navigate('/contactanos')}>
+                                <div className={`${style.nav_li} ${path === '/contactanos' ? style.active : undefined}`} onClick={() => { navigate('/contactanos') }}>
                                     <label>
                                     Contáctanos
                                     </label>
                                 </div>
                             </li>
-                            <div id={style.country} onMouseEnter={() => { setPopCountry(true) }} onMouseLeave={() => setPopCountry(false)} >
+                            <div id={style.country} onMouseEnter={() => { setPopCountry(true) }} onMouseLeave={() => { setPopCountry(false) }} >
                                 <div id="butCountry" >
                                     {
                                         windowSize > 1190
                                           ? (
-                                            <img src={arroIcon} alt={country === 'PE' ? 'Perú' : 'Ecuador'} />
+                                            <img src={arroIcon} alt={country === Country.PE ? 'Perú' : 'Ecuador'} />
 
                                             )
                                           : (
@@ -183,16 +192,16 @@ const Header = () => {
                                 <div id={style.popoutCountry} style={{ display: popCountry || windowSize <= 1190 ? 'flex' : 'none' }} >
                                     <div className={style.iconOptions}>
                                         <div>
-                                            <img title={country === 'PE' ? 'Perú' : 'Ecuador'} src={country === 'PE' ? peruFlag : ecuadorFlag} alt={country === 'PE' ? 'Perú' : 'Ecuador'} />
+                                            <img title={country === Country.PE ? 'Perú' : 'Ecuador'} src={country === Country.PE ? peruFlag : ecuadorFlag} alt={country === Country.PE ? 'Perú' : 'Ecuador'} />
                                         </div>
-                                        <div id={style.currentTheme} onClick={() => setThemeColor(THEME === 'dark' ? 'light' : 'dark')}>
+                                        <div id={style.currentTheme} onClick={() => { setThemeColor(THEME === ColorScheme.Dark ? ColorScheme.Light : ColorScheme.Dark) } }>
                                             {
-                                                THEME === 'dark'
+                                                THEME === ColorScheme.Dark
                                                   ? (
                                                     <img src={sunIcon} alt={'Theme Icon'} />
                                                     )
                                                   : (
-                                                    <img src={moonIcon} alt={country === 'PE' ? 'Perú' : 'Ecuador'} />
+                                                    <img src={moonIcon} alt={country === Country.PE ? 'Perú' : 'Ecuador'} />
                                                     )
                                             }
                                         </div>
@@ -200,10 +209,10 @@ const Header = () => {
                                     <div id={style.amIAt} >
                                         ¿Estoy en?
                                     </div>
-                                    <div className={style.paisOption} onClick={() => { setPopCountry(false); dispatch(setCountry('PE')) }} >
+                                    <div className={style.paisOption} onClick={() => { setPopCountry(false); dispatch(setCountry(Country.PE)) }} >
                                         Perú
                                     </div>
-                                    <div className={style.paisOption} onClick={() => { setPopCountry(false); dispatch(setCountry('EC')) }} >
+                                    <div className={style.paisOption} onClick={() => { setPopCountry(false); dispatch(setCountry(Country.EC)) }} >
                                         Ecuador
                                     </div>
                                 </div>

@@ -1,7 +1,13 @@
 import style from './Card.module.css'
 import { Link } from 'react-router-dom'
 
-const CardDestinos = ({ img, title, message }) => {
+interface Props {
+  img: string
+  title: string
+  message: string
+}
+
+const CardDestinos: React.FC<Props> = ({ img, title, message }: Props) => {
   return (
         <div id={style.Card}>
             <div id={style.container}>

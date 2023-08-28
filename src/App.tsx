@@ -6,7 +6,7 @@ import type { RootState } from './redux/reducer/reducer'
 import { Country } from './enums'
 
 function App (): JSX.Element {
-  const country = useSelector<RootState>((state: RootState) => state.country)
+  const country = useSelector((state: RootState) => state.country)
 
   useLayoutEffect(() => {
     const theme = window.localStorage.getItem('theme')

@@ -5,10 +5,12 @@
   padding: 0;
   box-sizing: border-box;
   /* font-family: Rubik, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif; */
-  font-family: 'Inter', sans-serif;    
   -webkit-font-smoothing: antialiased;
   -webkit-box-direction: normal;
   -webkit-text-size-adjust: 100%;
+}
+body{
+  font-family: 'Inter', sans-serif;    
 }
 
 :root {

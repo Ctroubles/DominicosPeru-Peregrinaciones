@@ -1,13 +1,14 @@
-import React from 'react';
+import React from 'react'
 import style from './alert.module.css'
 import succesLogo from '../../assets/icons/checkmark.svg'
+import errorLogo from '../../assets/icons/xError.svg'
 
+interface Props {
+  status: boolean
+  closeHandler: () => void
+}
 
-
-import errorLogo from '../../assets/icons/xError.svg';
-
-
-const Alert = ({ status, closeHandler }) => {
+const Alert: React.FC<Props> = ({ status, closeHandler }) => {
   return (
         <div id={style.AlertCover}>
                     <div id={style.alert}>
@@ -32,7 +33,7 @@ const Alert = ({ status, closeHandler }) => {
                             </p>
                         </div>
                         <div id={style.buttonContainer} className={!status ? style.error : undefined}>
-                            <button onClick={() => closeHandler()}>
+                            <button onClick={closeHandler} type='button'>
                                 ACEPTAR
                             </button>
                         </div>

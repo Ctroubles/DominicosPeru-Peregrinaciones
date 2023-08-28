@@ -1,6 +1,8 @@
 import style from './peregrinacacion.module.css'
 // peregrionaciones dominicanas
-const Peregrinacion = () => {
+
+/* eslint-disable react/no-unescaped-entities */
+const Peregrinacion: React.FC = () => {
   return (
         <div id={style.Peregrinacion}>
             <div id={style.container}>

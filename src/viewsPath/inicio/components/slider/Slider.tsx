@@ -4,10 +4,12 @@ import { useState, useEffect, useLayoutEffect } from 'react'
 
 const SLIDER_DURATTION = 1600
 
-const Slider = ({ DATA }) => {
+type Data = Array<{ title: string, url: string }>
+
+const Slider: React.FC< { DATA: Data } > = ({ DATA }: { DATA: Data }) => {
   const [imagenes] = useState([DATA[DATA.length - 1], ...DATA, DATA[0]])
-  const [imagesArr, setIamgesArr] = useState([])
-  const [titlesArr, setTitlesArr] = useState([])
+  const [imagesArr, setIamgesArr] = useState<Data>([])
+  const [titlesArr, setTitlesArr] = useState<string[]>([])
 
   const [cooldown, setCooldown] = useState(false)
   const [reset, setReset] = useState(true)
@@ -34,7 +36,7 @@ const Slider = ({ DATA }) => {
     }
   }, [position])
 
-  const forwardHandler = () => {
+  const forwardHandler = (): void => {
     if (cooldown) return
     setReset(!reset)
     setSliderStyle({
@@ -47,7 +49,7 @@ const Slider = ({ DATA }) => {
     }, SLIDER_DURATTION)
   }
 
-  const backwardHandler = () => {
+  const backwardHandler = (): void => {
     if (cooldown) return
     setReset(!reset)
     setSliderStyle({
@@ -60,7 +62,7 @@ const Slider = ({ DATA }) => {
     }, SLIDER_DURATTION)
   }
 
-  const dotsHandler = (pos) => {
+  const dotsHandler = (pos: number): void => {
     if (cooldown) return
     setReset(!reset)
     setSliderStyle({
@@ -74,7 +76,7 @@ const Slider = ({ DATA }) => {
   }
 
   useEffect(() => {
-    let intervalo = null
+    let intervalo: number | null = null
     if (!isPaused) {
       intervalo = setInterval(() => {
         setSliderStyle({
@@ -89,15 +91,16 @@ const Slider = ({ DATA }) => {
     }
 
     return () => {
-      if (intervalo !== null) {
+      if (intervalo != null) {
         clearInterval(intervalo)
       }
     }
   }, [cooldown, isPaused])
 
-  function imageLoaded ({ target }) {
+  function imageLoaded (event: React.SyntheticEvent<HTMLImageElement>): void {
+    const target = event.target as HTMLElement
     const parent = target.parentElement
-    if (parent) {
+    if (parent != null) {
       parent.classList?.add(style.loaded)
       setIsPaused(false)
     }
@@ -128,7 +131,7 @@ const Slider = ({ DATA }) => {
                     {
                         imagenes.map((e, i) => (
                             <div id={style.imgHeader} key={`${i} - ${e.title}`}>
-                                <img title={e.title} src={e.url} alt={e.url} onLoad={(event) => imageLoaded(event)}/>
+                                <img title={e.title} src={e.url} alt={e.url} onLoad={imageLoaded}/>
                             </div>
                         ))
                     }
@@ -137,16 +140,16 @@ const Slider = ({ DATA }) => {
             </div>
             <div className={style.arrows}>
                 <div>
-                    <img src={arrow} alt="" onClick={() => backwardHandler()}/>
+                    <img src={arrow} alt="" onClick={() => { backwardHandler() }}/>
                 </div>
             </div>
             <div className={style.arrows} id={style.leftArrow}>
                 <div>
-                    <img src={arrow} alt="" onClick={() => forwardHandler()}/>
+                    <img src={arrow} alt="" onClick={() => { forwardHandler() }}/>
                 </div>
             </div>
             <div id={style.sliderDots}>
-                <div onClick={() => setIsPaused(!isPaused)}>
+                <div onClick={() => { setIsPaused(!isPaused) }}>
                     {
                         isPaused
                           ? (
@@ -164,7 +167,7 @@ const Slider = ({ DATA }) => {
                 </div>
                 {
                     titlesArr.map((e, i) => (
-                        <span key={i} id={exactPosition === i + 1 ? style.activeDot : undefined} onClick={() => dotsHandler(i + 1)} title={e}></span>
+                        <span key={i} id={exactPosition === i + 1 ? style.activeDot : undefined} onClick={() => { dotsHandler(i + 1) }} title={e}></span>
                     ))
                 }
             </div>

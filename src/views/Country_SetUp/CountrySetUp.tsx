@@ -9,7 +9,7 @@ import { Country } from '../../enums'
 const CountrySetUp: React.FC = () => {
   const dispatch = useDispatch()
 
-  const [pick, setPick] = useState<keyof typeof Country>('PE')
+  const [pick, setPick] = useState<Country>(Country.PE)
 
   useEffect(() => {
     console.log(pick)
