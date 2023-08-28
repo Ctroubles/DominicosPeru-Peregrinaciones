@@ -2,6 +2,10 @@ import React from 'react'
 import style from './alert.module.css'
 import succesLogo from '../../assets/icons/checkmark.svg'
 import errorLogo from '../../assets/icons/xError.svg'
+import { Phone } from '../../utils'
+import { useSelector } from 'react-redux'
+import { type RootState } from '../../redux/reducer/reducer'
+import { Country } from '../../enums'
 
 interface Props {
   status: boolean
@@ -9,6 +13,8 @@ interface Props {
 }
 
 const Alert: React.FC<Props> = ({ status, closeHandler }) => {
+  const country = useSelector((e: RootState) => e.country)
+
   return (
         <div id={style.AlertCover}>
                     <div id={style.alert}>
@@ -27,7 +33,7 @@ const Alert: React.FC<Props> = ({ status, closeHandler }) => {
                         <div>
                             <p>
                                 {
-                                    status ? 'Tu mensaje ha sido enviado correctamente, te contactaremos lo antes posible.' : 'No se pudo envíar tu mensaje, intenta más tarde o comunicate a nuestro whatsapp +51 999 999'
+                                    status ? 'Tu mensaje ha sido enviado correctamente, te contactaremos lo antes posible.' : `No se pudo envíar tu mensaje, intenta más tarde o comunicate a nuestro whatsapp ${country === Country.PE ? Phone.peru : Phone.ecuador}`
                                 }
 
                             </p>

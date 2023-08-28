@@ -1,5 +1,5 @@
 import style from './Inicio.module.css'
-import CardDestinos from '../../componets/card/Card'
+import CardDestinos from '../../components/card/Card'
 import { useRef } from 'react'
 import Slider from './components/slider/Slider'
 
@@ -83,7 +83,7 @@ const Inicio: React.FC = () => {
                 <div>
                     <div style={{ width: '100%', display: 'flex', justifyContent: 'center', paddingBottom: '20px' }}>
                         <Slider
-                           DATA ={sliderData}
+                            DATA ={sliderData}
                         />
                     </div>
                     <div id={style.main}>

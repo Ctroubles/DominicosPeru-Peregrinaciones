@@ -6,7 +6,7 @@ import { WA_LINK, FB_LINK } from '../../utils.ts'
 import { type RootState } from '../../redux/reducer/reducer.js'
 
 const FlotingBubbles: React.FC = () => {
-  const { country } = useSelector((state: RootState) => state)
+  const country = useSelector((e: RootState) => e.country)
 
   return (
         <div id={style.bubbles}>

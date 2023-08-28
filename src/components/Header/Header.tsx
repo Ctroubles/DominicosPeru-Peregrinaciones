@@ -18,7 +18,7 @@ import { type RootState } from '../../redux/reducer/reducer'
 import { ColorScheme, Country } from '../../enums'
 
 const Header: React.FC = () => {
-  const { country } = useSelector((e: RootState) => e)
+  const country = useSelector((e: RootState) => e.country)
   const navigate = useNavigate()
   const location = useLocation()
   const dispatch = useDispatch()

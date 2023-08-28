@@ -1,5 +1,10 @@
 import { type ColorScheme } from './enums'
 
+export const Phone = {
+  peru: '+51 939736123',
+  ecuador: '+59 3960918252'
+}
+
 const WHA_SETTINGS = {
   peruPhone: '51939736123',
   ecuadorPhone: '593960918252',

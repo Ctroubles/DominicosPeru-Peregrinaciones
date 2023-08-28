@@ -1,10 +1,10 @@
-#Contactanos{
+#Contacto{
     width: 100%;
     flex-shrink: 0;
     background: 
     linear-gradient(
-      rgba(0, 0, 0, 0.8), 
-      rgba(0, 0, 0, 0.8)
+        rgba(0, 0, 0, 0.8), 
+        rgba(0, 0, 0, 0.8)
     ),
     url('https://res.cloudinary.com/dmwdwipoo/image/upload/v1692677897/lugares_raw/la_iglesia_del_santo_sepulcro_en_jerusalen__001_istoe1.jpg');
     background-repeat: no-repeat;
@@ -63,15 +63,59 @@
     border: 2px solid #eeeeee41;
     transition: filter 0.3s ease;
 }
+.inputsContainer span{
+    display: none;
+}
 .inputsContainer.error{
-    border-color: #ff0000;
+    outline: #ff0000 solid 3px;
+    position: relative;
+}
+.inputsContainer.error>span{
+    background-color: #ff000086;
+    position: absolute;
+    left: -38px;
+    bottom: calc(50% - 12.5px);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 25px;
+    width: 25px;
+    height: 25px;
+    border-radius: 1000%;
+    display: grid;
+    place-content: center;
+    cursor: default;
+    user-select: none;
+}
+.inputsContainer.error>span>span{
+    display: block;
+    position: relative;
+    height: 0;
+    width: 0;
+}
+.inputsContainer.error>span>span::before{
+    display: none;
+    content: attr(data-tooltip);
+    background-color: #460101;
+    position: absolute;
+    bottom: 5px;
+    left: 2px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    font-weight: 300;
+    white-space: nowrap;
+    font-size: 14px;
+    padding: 2px 8px;
+}
+.inputsContainer.error>span:hover span::before{
+    display: block;
 }
 .inputsContainer:hover{
     filter: brightness(80%);
 }
 .inputsContainer:focus,
 .inputsContainer:focus-within {
-  border-color: #eeeeee; 
+    border-color: #eeeeee; 
 }
 
 #right input, #right textarea, #right button{
@@ -96,7 +140,7 @@
     line-height: 25px;
     user-select: none;
 }
-#containerContacButtons{
+#containerContactButtons{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,17 +151,17 @@
     max-width: 630px;
     margin: 0 auto;
 }
-#containerContacButtons a{
+#containerContactButtons a{
     text-decoration: none;
     color: #fefefe;
 }
-#containerContacButtons > :nth-child(1),
-#containerContacButtons > :nth-child(2){
+#containerContactButtons > :nth-child(1),
+#containerContactButtons > :nth-child(2){
     flex-basis: 0;
     flex-grow: 1;
     min-width: 170px;
 }
-#containerContacButtons>:nth-child(3){
+#containerContactButtons>:nth-child(3){
     width: 100%;
     flex-shrink: 0;
 }
@@ -156,7 +200,7 @@
         transform: rotate(360deg); 
     }
 }
-  
+
 
 
 
@@ -187,7 +231,7 @@
         width: 100%;
         max-width: 630px;
     }
-    #containerContacButtons{
+    #containerContactButtons{
         padding: 15px 0 0 ;
     }
 }

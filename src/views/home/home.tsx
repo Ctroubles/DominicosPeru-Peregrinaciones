@@ -1,6 +1,6 @@
 import style from './home.module.css'
-import Header from '../../componets/Header/Header'
-import Footer from '../../componets/Footer/Footer'
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Contactanos from '../../viewsPath/contactanos/Contactanos'

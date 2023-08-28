@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { type RootState } from '../../redux/reducer/reducer'
 
 const Footer: React.FC = () => {
-  const { country } = useSelector((e: RootState) => e)
+  const country = useSelector((e: RootState) => e.country)
 
   return (
         <div>
