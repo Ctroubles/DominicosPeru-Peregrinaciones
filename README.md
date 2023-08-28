@@ -2,13 +2,14 @@
 
 ### 🛠️ Información Técnica
 
-La página de Peregrinaciones Dominicanas Perú-Ecuador está construida utilizando tecnologías modernas para proporcionar una experiencia fluida y atractiva para los usuarios interesados en las peregrinaciones. Algunas de las características técnicas incluyen:
+La página de Peregrinaciones Dominicanas Perú-Ecuador se ha desarrollado con buenas prácticas y tecnologías, garantizando una buena experiencia para los usuarios interesados en las peregrinaciones. Algunas de las características técnicas notables son:
 
 - Desarrollada con 💻 TypeScript y ⚛️ React para un código más seguro y mantenible.
 - Utiliza 🔄 Redux para la administración del estado, permitiendo una gestión eficiente de los datos.
 - Optimizada para un rendimiento rápido y una carga de página suave gracias a 🚀 Vite.
 - Implementación de un tema oscuro 🌙 y claro ☀️ para una experiencia visual personalizable.
 - Estructura modular que facilita la escalabilidad y el mantenimiento a largo plazo. 🧩
+- Responsive: La página está diseñada para ser completamente responsive y se adapta de manera óptima a una variedad de dispositivos. 📱
 
 ### 📚 Descripción del Proyecto
 
