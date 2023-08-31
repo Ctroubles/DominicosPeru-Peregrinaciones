@@ -100,7 +100,8 @@ const Contacto: React.FC = () => {
                                     </h2>
                                 </div>
                                 <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores praesentium dolorem nemo voluptatibus itaque autem eligendi debitis odio architecto deserunt cupiditate omnis excepturi, aliquam quibusdam, distinctio, mollitia molestiae quam laboriosam?
+                                    <p>
+                                    Tu mensaje es importante para nosotros. Te atenderemos lo antes posible.
                                     </p>
                                 </div>
                                 <div>

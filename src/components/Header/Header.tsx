@@ -127,7 +127,7 @@ const Header: React.FC = () => {
                         <img src={logo} alt="Logo Peregrinaciones Domínicos" />
                     </div>
                     <div>
-                        <h1>Peregrinaciones Domínicanas {country === 'PE' ? 'Perú' : ''}</h1>
+                        <h1>Peregrinaciones Dominicanas {country === 'PE' ? 'Perú' : ''}</h1>
                     </div>
                 </div>
                 <div>

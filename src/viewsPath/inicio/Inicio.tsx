@@ -94,8 +94,11 @@ const Inicio: React.FC = () => {
                             </h1>
                         </div>
                         <div id={style.presentation}>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem sapiente natus cum, rem, error modi, tenetur nostrum labore ullam ea quas illo ad sit ipsam deleniti? Saepe assumenda blanditiis a.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, dignissimos facere. Debitis nihil cum ducimus dicta hic. Quis minima quos veniam id repudiandae, cum similique officiis! Accusantium laborum non animi.
+                            <p>
+                            Conocer los lugares de la fe cristiana, es decir la geografía de la vida y misión de Jesús y del origen de la Iglesia, es posible, cada vez, para más personas. 
+                            Los Dominicos del Perú, cada año, ofrecemos esta posibilidad a quienes quieran hacer esta gran experiencia cultural y religiosa, nos asiste una experiencia de 12 años con muchos grupos y personas llevadas.
+                            Podemos en este mismo viaje, facilitar extensiones a tres países: Jordania, país con vestigios de culturas antiguas y de Israel en su camino de Egipto hacia la Tierra Prometida; Egipto, una de las más grandes civilizaciones antiguas; y Turquía, puente de la difusión del cristianismo hacia Occidente y centro del Imperio de Romano de Oriente.
+                            Además, ofrecemos cada año, otros dos itinerarios: “Tras los Pasos de San Pablo”, 20 días y comprende Turquía, Grecia y Roma (noviembre); y “Europa Cristiana y Santuarios Marianos”, 21 días y comprende Portugal, España, Francia e Italia, con los más importantes santuarios de peregrinación (mayo).
                             </p>
                             <ul>
                                 <li>Un viaje transformador hacia la espiritualidad y la conexión con lo divino.</li>
